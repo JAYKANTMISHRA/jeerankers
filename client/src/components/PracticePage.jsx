@@ -216,10 +216,22 @@ try {
 
   const handleTextSearch = async (e) => {
     try {
-      // const response = await axios.get(`https://je-2-backend.onrender.com/api/v1/getProblemByText?text=${text}&page_no=${currentPage}&probPerPage=${probPerPage}`);
+      
+  // Extract token from cookie
+  const userData = Cookies.get('userData');
+  const token = userData ? JSON.parse(userData).token : null;
+   
+  // Throw error if no token found
+  if (!token) {
+    console.error("Token not found in userData cookie");
+    return;
+  }
 
-
-      const response = await axios.get(`https://jeerankers.onrender.com/api/v1/getProblemByText?text=${text}&page_no=${currentPage}&probPerPage=${probPerPage}`);
+      const response = await axios.get(`https://jeerankers.onrender.com/api/v1/getProblemByText?text=${text}&page_no=${currentPage}&probPerPage=${probPerPage}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
 
 
@@ -232,9 +244,24 @@ try {
 
   const resolveStatus = async () => {
     try {
+
+      
+  // Extract token from cookie
+  const userData = Cookies.get('userData');
+  const token = userData ? JSON.parse(userData).token : null;
+   
+  // Throw error if no token found
+  if (!token) {
+    console.error("Token not found in userData cookie");
+    return;
+  }
       const storedData = JSON.parse(Cookies.get('userData'));
       setUserData(storedData);
-      const res = await axios.get(`https://jeerankers.onrender.com/api/v1/getSolvedProblem?userId=${storedData._id}`);
+      const res = await axios.get(`https://jeerankers.onrender.com/api/v1/getSolvedProblem?userId=${storedData._id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
       setArr(res.data.data);
     } catch (error) {
       console.error(error);
