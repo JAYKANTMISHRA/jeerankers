@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import Cookies from 'js-cookie';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';  // Import toast styles
+import 'react-toastify/dist/ReactToastify.css';  
 import styled from 'styled-components';
 
 const FormContainer = styled.div`
@@ -100,7 +100,7 @@ const Settings = () => {
                 console.error("Token not found in userData cookie");
                 return;
               }
-            const response = await axios.put(`http://localhost:5000/api/v1/updateUser`, {
+            const response = await axios.put(`https://jeerankers.onrender.com/api/v1/updateUser`, {
                 oldPassword: state.oldPassword,
                 newPassword: state.newPassword,
                 cnfPassword: state.cnfPassword,

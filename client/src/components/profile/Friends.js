@@ -81,7 +81,7 @@ const Friends = () => {
               }
             const storedData = JSON.parse(Cookies.get('userData'));
             
-            const response = await axios.get(`http://localhost:5000/api/v1/getFriendList?userId=${storedData._id}`,{
+            const response = await axios.get(`https://jeerankers.onrender.com/api/v1/getFriendList?userId=${storedData._id}`,{
       headers: {
         Authorization: `Bearer ${token}`,
       },

@@ -46,7 +46,7 @@ const ContestForm = () => {
                 console.error("Token not found in userData cookie");
                 return;
               }
-            await axios.post("http://localhost:5000/api/v1/createContest", data,{
+            await axios.post("https://jeerankers.onrender.com/api/v1/createContest", data,{
         headers: {
         Authorization: `Bearer ${token}`,
         },

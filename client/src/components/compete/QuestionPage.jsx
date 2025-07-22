@@ -61,7 +61,7 @@ const QuestionPage = () => {
           console.error("Token not found in userData cookie");
           return;
         }
-      const res = await axios.get(`http://localhost:5000/api/v1/getProblem/${id}`,{
+      const res = await axios.get(`https://jeerankers.onrender.com/api/v1/getProblem/${id}`,{
       headers: {
         Authorization: `Bearer ${token}`,
       },

@@ -186,7 +186,7 @@ try {
 
   // Make authenticated request
   const response = await axios.get(
-    `http://localhost:5000/api/v1/getProblemByText?text=${text}&page_no=${currentPage}&probPerPage=${probPerPage}`,
+    `https://jeerankers.onrender.com/api/v1/getProblemByText?text=${text}&page_no=${currentPage}&probPerPage=${probPerPage}`,
     {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -219,7 +219,7 @@ try {
       // const response = await axios.get(`https://je-2-backend.onrender.com/api/v1/getProblemByText?text=${text}&page_no=${currentPage}&probPerPage=${probPerPage}`);
 
 
-      const response = await axios.get(`http://localhost:5000/api/v1/getProblemByText?text=${text}&page_no=${currentPage}&probPerPage=${probPerPage}`);
+      const response = await axios.get(`https://jeerankers.onrender.com/api/v1/getProblemByText?text=${text}&page_no=${currentPage}&probPerPage=${probPerPage}`);
 
 
 
@@ -234,7 +234,7 @@ try {
     try {
       const storedData = JSON.parse(Cookies.get('userData'));
       setUserData(storedData);
-      const res = await axios.get(`http://localhost:5000/api/v1/getSolvedProblem?userId=${storedData._id}`);
+      const res = await axios.get(`https://jeerankers.onrender.com/api/v1/getSolvedProblem?userId=${storedData._id}`);
       setArr(res.data.data);
     } catch (error) {
       console.error(error);

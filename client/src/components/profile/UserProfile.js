@@ -147,7 +147,7 @@ const UserProfile = () => {
                 return;
               }
           
-            const response = await axios.get(`http://localhost:5000/api/v1/getUserData?urlId=${urlId}&userId=${storedData._id}`,{
+            const response = await axios.get(`https://jeerankers.onrender.com/api/v1/getUserData?urlId=${urlId}&userId=${storedData._id}`,{
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -176,13 +176,13 @@ const UserProfile = () => {
                }
             let response;
             if (isFriend === false) {
-                response = await axios.put(`http://localhost:5000/api/v1/addFriend?friendId=${urlId}&userId=${storedData._id}`,{
+                response = await axios.put(`https://jeerankers.onrender.com/api/v1/addFriend?friendId=${urlId}&userId=${storedData._id}`,{
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
             } else {
-                response = await axios.put(`http://localhost:5000/api/v1/removeFriend?friendId=${urlId}&userId=${storedData._id}`,{
+                response = await axios.put(`https://jeerankers.onrender.com/api/v1/removeFriend?friendId=${urlId}&userId=${storedData._id}`,{
       headers: {
         Authorization: `Bearer ${token}`,
       },

@@ -118,7 +118,7 @@ const MainPage = () => {
           }
 
       
-      const response = await axios.get("http://localhost:5000/api/v1/getContest",{
+      const response = await axios.get("https://jeerankers.onrender.com/api/v1/getContest",{
       headers: {
         Authorization: `Bearer ${token}`,
       },

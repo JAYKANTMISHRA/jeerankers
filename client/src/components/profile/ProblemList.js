@@ -66,7 +66,7 @@ const ProblemList = () => {
           return;
         }
       const res = await axios.get(
-        `http://localhost:5000/api/v1/${text}?userId=${userId}`,{
+        `https://jeerankers.onrender.com/api/v1/${text}?userId=${userId}`,{
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -89,7 +89,7 @@ const ProblemList = () => {
           return;
         }
       const res = await axios.get(
-        `http://localhost:5000/api/v1/getSolvedProblem?userId=${userId}`,{
+        `https://jeerankers.onrender.com/api/v1/getSolvedProblem?userId=${userId}`,{
       headers: {
         Authorization: `Bearer ${token}`,
       },

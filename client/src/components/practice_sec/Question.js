@@ -46,7 +46,7 @@ const Question = () => {
            console.error("Token not found in userData cookie");
            return;
          }
-      const response = await axios.get(`http://localhost:5000/api/v1/getMarkedProblem?userId=${userId}&problemId=${item._id}`,{
+      const response = await axios.get(`https://jeerankers.onrender.com/api/v1/getMarkedProblem?userId=${userId}&problemId=${item._id}`,{
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -100,7 +100,7 @@ const Question = () => {
           console.error("Token not found in userData cookie");
           return;
         }
-      const response = await axios.put(`http://localhost:5000/api/v1/storeSolvedQuestion`,{userId: userData._id, problemId:item._id},
+      const response = await axios.put(`https://jeerankers.onrender.com/api/v1/storeSolvedQuestion`,{userId: userData._id, problemId:item._id},
         {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -168,7 +168,7 @@ const Question = () => {
   const markQuestion = async () => {
     try {
         console.log("userdata",userData._id);
-        const res = await axios.put(`http://localhost:5000/api/v1/markProblem`, { problemId: `${item._id}`, userId:`${userData._id}`});
+        const res = await axios.put(`https://jeerankers.onrender.com/api/v1/markProblem`, { problemId: `${item._id}`, userId:`${userData._id}`});
         console.log('Response:', res.data);
         setMark(res.data.data);
     } catch (err) {
@@ -178,7 +178,7 @@ const Question = () => {
 
   const unmarkQeustion = async () => {
     try {
-        const res = await axios.put(`http://localhost:5000/api/v1/unmarkProblem`, { problemId: `${item._id}`, userId:`${userData._id}`});
+        const res = await axios.put(`https://jeerankers.onrender.com/api/v1/unmarkProblem`, { problemId: `${item._id}`, userId:`${userData._id}`});
         console.log('Response:', res.data);
         setMark(res.data.data);
     } catch (err) {
