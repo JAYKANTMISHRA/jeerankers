@@ -20,16 +20,12 @@ exports.auth = (req, res, next) => {
 
     // Verify token
     const payload = jwt.verify(token, process.env.JWT_SECRET);
-   // console.log("✅ Token Verified:", payload);
-
-    // Attach user to request
-  //  req.user = payload;
-
+   
     // Move to next middleware or route handler
     next();
   } catch (err) {
 
-    console.error("❌ Token Error:", err.message);
+    console.error(" Token Error:", err.message);
     return res.status(401).json({
       success: false,
       message: "Invalid or expired token",

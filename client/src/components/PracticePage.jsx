@@ -186,7 +186,7 @@ try {
 
   // Make authenticated request
   const response = await axios.get(
-    `https://jeerankers.onrender.com/api/v1/getProblemByText?text=${text}&page_no=${currentPage}&probPerPage=${probPerPage}`,
+    `https://jeerankers.onrender.com/api/v1/getProblem?page_no=${currentPage}&probPerPage=${probPerPage}&tags=${tags}`,
     {
       headers: {
         Authorization: `Bearer ${token}`,

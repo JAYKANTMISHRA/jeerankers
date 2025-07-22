@@ -167,8 +167,20 @@ const Question = () => {
 
   const markQuestion = async () => {
     try {
-        console.log("userdata",userData._id);
-        const res = await axios.put(`https://jeerankers.onrender.com/api/v1/markProblem`, { problemId: `${item._id}`, userId:`${userData._id}`});
+        //console.log("userdata",userData._id);
+        const userData = Cookies.get('userData');
+        const token = userData ? JSON.parse(userData).token : null;
+         
+        // Throw error if no token found
+        if (!token) {
+          console.error("Token not found in userData cookie");
+          return;
+        }
+        const res = await axios.put(`https://jeerankers.onrender.com/api/v1/markProblem`, { problemId: `${item._id}`, userId:`${userData._id}`}, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
         console.log('Response:', res.data);
         setMark(res.data.data);
     } catch (err) {
@@ -178,7 +190,19 @@ const Question = () => {
 
   const unmarkQeustion = async () => {
     try {
-        const res = await axios.put(`https://jeerankers.onrender.com/api/v1/unmarkProblem`, { problemId: `${item._id}`, userId:`${userData._id}`});
+      const userData = Cookies.get('userData');
+        const token = userData ? JSON.parse(userData).token : null;
+         
+        // Throw error if no token found
+        if (!token) {
+          console.error("Token not found in userData cookie");
+          return;
+        }
+        const res = await axios.put(`https://jeerankers.onrender.com/api/v1/unmarkProblem`, { problemId: `${item._id}`, userId:`${userData._id}`}, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
         console.log('Response:', res.data);
         setMark(res.data.data);
     } catch (err) {
